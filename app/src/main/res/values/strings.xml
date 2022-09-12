@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Login: Sci High</string>
+    <string name="edit_message">User</string>
+    <string name="button_send">Login</string>
+    <string name="Password">Password</string>
+    <string name="todo">TODO</string>
+    <string name="bienvenidos">Bienvenidos</string>
+</resources>
