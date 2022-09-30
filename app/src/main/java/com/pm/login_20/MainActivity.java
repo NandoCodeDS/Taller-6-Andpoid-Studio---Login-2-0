@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.pm.login_20.InterfacesRepos.ApiLogin;
 import com.pm.login_20.repository.ApiUser;
 
 import okhttp3.OkHttpClient;
@@ -50,11 +51,11 @@ public class MainActivity extends AppCompatActivity {
                         .addConverterFactory(GsonConverterFactory.create())
                         .client(httpClient.build())
                         .build();
-                ApiUser login =retrofit.create(ApiUser.class);
-                Call<User> call =login.LOGIN_CALL(email, password);
-                call.enqueue(new Callback<User>() {
+                ApiLogin login =retrofit.create(ApiLogin.class);
+                Call<Login> call =login.LOGIN_CALL(email, password);
+                call.enqueue(new Callback<Login>() {
                     @Override
-                    public void onResponse(Call<User> call, Response<User> response) {
+                    public void onResponse(Call<Login> call, Response<Login> response) {
                         if (response.isSuccessful() && response.body() !=null){
                             userTV.getText().clear();
                             passTV.getText().clear();
@@ -63,18 +64,18 @@ public class MainActivity extends AppCompatActivity {
                             Intent intent =new Intent(MainActivity.this,Logueado.class);
                             intent.putExtra("token",tokenInter);
                             startActivity(intent);
-                            
+
                         }else if(response.code()==401){
-                            Toast.makeText(MainActivity.this, "Correo invalido", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(MainActivity.this, "Correo invalido, Por favor Registrarse", Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(MainActivity.this,ValidateAccount.class));
                             finish();
                         }else{
-                            Toast.makeText(MainActivity.this, "Error en login/Password", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(MainActivity.this, "Su correo no esxite en la base de datos", Toast.LENGTH_SHORT).show();
                         }
                     }
 
                     @Override
-                    public void onFailure(Call<User> call, Throwable t) {
+                    public void onFailure(Call<Login> call, Throwable t) {
                         Toast.makeText(MainActivity.this, "Se produjo un Error, intentelo de nuevo", Toast.LENGTH_SHORT).show();
                     }
                 });

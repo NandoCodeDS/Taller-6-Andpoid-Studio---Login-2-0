@@ -1,7 +1,6 @@
 package com.pm.login_20;
 
 import android.content.Intent;
-import android.media.session.MediaSession;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -10,7 +9,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.pm.login_20.repository.ApiUser;
+import com.pm.login_20.InterfacesRepos.ApiLogin;
+
 
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
@@ -25,7 +25,7 @@ public class Logueado extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_display_message);
+        setContentView(R.layout.activity_log_ok);
 
         txtToken=findViewById(R.id.textView);
         Bundle intet = getIntent().getExtras();
@@ -48,11 +48,11 @@ public class Logueado extends AppCompatActivity {
                         .addConverterFactory(GsonConverterFactory.create())
                         .client(httpClient.build())
                         .build();
-                ApiUser logout = retrofit.create(ApiUser.class);
-                Call<User> call = logout.LOGOUT_CALL(token);
-                call.enqueue(new Callback<User>() {
+                ApiLogin logout = retrofit.create(ApiLogin.class);
+                Call<Login> call = logout.LOGOUT_CALL(token);
+                call.enqueue(new Callback<Login>() {
                     @Override
-                    public void onResponse(Call<User> call, Response<User> response) {
+                    public void onResponse(Call<Login> call, Response<Login> response) {
                         if(response.isSuccessful()&&response.body()!=null){
                             Toast.makeText(Logueado.this,"La sesion se ha cerrado", Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(Logueado.this,MainActivity.class));
@@ -61,7 +61,7 @@ public class Logueado extends AppCompatActivity {
                     }
 
                     @Override
-                    public void onFailure(Call<User> call, Throwable t) {
+                    public void onFailure(Call<Login> call, Throwable t) {
                         Toast.makeText(Logueado.this,"Hubo un error, intente de nuevo", Toast.LENGTH_LONG).show();
 
                     }

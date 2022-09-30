@@ -8,5 +8,5 @@ public class ValidateAccount extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_display_message);
+        setContentView(R.layout.activity_registro_nuevo);}
 }
