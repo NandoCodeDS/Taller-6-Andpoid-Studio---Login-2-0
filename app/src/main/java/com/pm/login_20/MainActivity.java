@@ -11,7 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.pm.login_20.InterfacesRepos.ApiLogin;
-import com.pm.login_20.repository.ApiUser;
+
 
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
                 httpClient.addInterceptor(loggin);
 
                 Retrofit retrofit = new Retrofit.Builder()
-                        .baseUrl("http://localhost:5432/postgres/")
+                        .baseUrl("http://192.168.56.1:5432/danielRomero/")
                         .addConverterFactory(GsonConverterFactory.create())
                         .client(httpClient.build())
                         .build();
@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
                             startActivity(new Intent(MainActivity.this,ValidateAccount.class));
                             finish();
                         }else{
-                            Toast.makeText(MainActivity.this, "Su correo no esxite en la base de datos", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(MainActivity.this, "Posiblemente el correo ya exista", Toast.LENGTH_SHORT).show();
                         }
                     }
 

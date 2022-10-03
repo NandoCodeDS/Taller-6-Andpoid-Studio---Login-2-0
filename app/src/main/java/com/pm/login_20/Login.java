@@ -2,24 +2,19 @@ package com.pm.login_20;
 
 public class Login {
 
+    public int id;
     public String email;
     public String password;
     public String token;
 
-    public String getToken() {
-        return token;
-    }
-
-    public void setToken(String token) {
-        this.token = token;
-    }
-
     public Login() {
     }
 
-    public Login(String email, String password) {
+    public Login(int id, String email, String password, String token) {
+        this.id = id;
         this.email = email;
         this.password = password;
+        this.token = token;
     }
 
     public String getEmail() {
@@ -36,5 +31,21 @@ public class Login {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

@@ -44,7 +44,7 @@ public class Logueado extends AppCompatActivity {
                 OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
                 httpClient.addInterceptor(loggin);
                 Retrofit retrofit = new Retrofit.Builder()
-                        .baseUrl("http://localhost:5432/postgres/")
+                        .baseUrl("http://192.168.56.1:5432/danielRomero/")
                         .addConverterFactory(GsonConverterFactory.create())
                         .client(httpClient.build())
                         .build();
