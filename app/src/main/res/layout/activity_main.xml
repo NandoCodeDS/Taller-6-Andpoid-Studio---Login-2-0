@@ -33,7 +33,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:backgroundTint="#CE1248CD"
-        android:onClick="sendMessage"
+        android:onClick="GET_UserById"
         android:text="@string/button_send"
         android:textColor="@color/white"
         android:textSize="22sp"
@@ -41,7 +41,8 @@
         app:layout_constraintBaseline_toBaselineOf="@+id/editTextTextPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/editTextTextPersonName" />
+        app:layout_constraintStart_toEndOf="@+id/editTextTextPersonName"
+        />
 
     <EditText
         android:id="@+id/editTextTextPassword"
