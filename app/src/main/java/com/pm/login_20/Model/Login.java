@@ -1,4 +1,4 @@
-package com.pm.login_20;
+package com.pm.login_20.Model;
 
 public class Login {
 
