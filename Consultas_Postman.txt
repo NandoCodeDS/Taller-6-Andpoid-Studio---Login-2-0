@@ -1,0 +1,19 @@
+POST
+http://localhost:8080/login/
+RAW
+JSON
+{
+    "email": "jmunoz@usc.com",
+    "password": "fgh",
+    "token": "hjkyui678",
+    "id": 6
+}
+_____________________________________
+GET
+http://localhost:8080/login/llopez@usc.com
+_____________________________________
+GET
+http://localhost:8080/estado/5
+_____________________________________
+GET
+http://localhost:8080/pais/5

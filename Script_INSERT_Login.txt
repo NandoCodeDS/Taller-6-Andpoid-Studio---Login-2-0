@@ -1,0 +1,7 @@
+INSERT INTO public.login(
+	id, email, password, token)
+	VALUES (1, 'ocorrea@usc.com', 'asd', 'qweasd123'),
+	(2, 'kcaicedo@usc.com', 'qwe', 'sdfwer234'),
+	(3, 'llopez@usc.com', 'zxc', 'dfgert345'),
+	(4, 'ssanchez@usc.com', 'mnb', 'fghrty456'),
+	(5, 'fflorez@usc.com', 'poi', 'ghjtyu567');
